@@ -43,6 +43,22 @@ public class Login extends AppCompatActivity {
                 if (txtPassword.getText().toString().equals("admin") && txtUserName.getText().toString().equals("admin")) {
                     startActivity(intent);
                 }
+                else if (txtPassword.getText().toString().equals("") && txtUserName.getText().toString().equals("")) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+                    builder.setMessage("Fields are empty");
+                    builder.setCancelable(true);
+
+                    builder.setPositiveButton(
+                            "OK",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // Action
+                                }
+                            });
+
+                    builder.show();
+                }
                 else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
                     builder.setMessage("Incorrect password");
